@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f8ff">
+  <title>TrialScope | Clinical research, made visible</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="TrialScope home">
+      <span class="brand-mark" aria-hidden="true">T</span>
+      <span>trial<span class="brand-light">scope</span></span>
+    </a>
+    <span class="topbar-note"><span class="live-dot"></span> LIVE RESEARCH DATA</span>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">THE FUTURE OF HEALTH, IN FOCUS</p>
+        <h1>See what research<br>is <span>working on.</span></h1>
+        <p class="hero-description">
+          Explore real clinical trials from around the world.
+          One search brings the latest studies into view.
+        </p>
+      </div>
+      <div class="hero-orbit" aria-hidden="true">
+        <span class="orbit orbit-one"></span>
+        <span class="orbit orbit-two"></span>
+        <span class="orbit-core">+</span>
+        <span class="orbit-tag">RESEARCH<br>IN MOTION</span>
+      </div>
+    </section>
+
+    <section class="search-panel" aria-label="Search clinical trials">
+      <form id="searchForm" class="search-form">
+        <label for="conditionInput">What health topic are you curious about?</label>
+        <div class="search-controls">
+          <div class="input-wrap">
+            <span class="search-icon" aria-hidden="true"></span>
+            <input id="conditionInput" type="search" value="Migraine" required
+              placeholder="Try migraine, sleep, diabetes..." autocomplete="off">
+          </div>
+          <button id="searchButton" type="submit">
+            <span>Explore studies</span>
+            <span class="button-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+        </div>
+      </form>
+      <p id="resultsMessage" class="results-message" role="status" aria-live="polite">
+        Connecting to ClinicalTrials.gov...
+      </p>
+    </section>
+
+    <section class="dashboard-grid" aria-label="Clinical trial search results">
+      <aside class="chart-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">THE BIG PICTURE</p>
+            <h2>Study status</h2>
+          </div>
+          <span class="chart-icon" aria-hidden="true">/</span>
+        </div>
+        <p class="panel-description">Status across the studies shown here</p>
+        <div class="chart-wrap">
+          <canvas id="statusChart" role="img"
+            aria-label="Bar chart showing the status of matching clinical trials"></canvas>
+        </div>
+        <div class="source-note">
+          <span class="source-dot"></span>
+          <span>Live sample from ClinicalTrials.gov</span>
+        </div>
+      </aside>
+
+      <section class="results-panel" aria-label="Matching studies">
+        <div class="results-heading">
+          <div>
+            <p class="eyebrow">FRESH FROM THE DATABASE</p>
+            <h2>Studies to explore</h2>
+          </div>
+          <span id="resultCount" class="result-count">0 studies</span>
+        </div>
+        <div id="resultsList" class="results-list"></div>
+      </section>
+    </section>
+
+    <footer class="page-footer">
+      <span>Research information only. Not medical advice.</span>
+      <a href="https://clinicaltrials.gov" target="_blank" rel="noopener noreferrer">
+        Data by ClinicalTrials.gov <span aria-hidden="true">&nearr;</span>
+      </a>
+    </footer>
+  </main>
+</body>
+</html>
