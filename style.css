@@ -474,6 +474,13 @@ h1 span {
   line-height: 1.5;
 }
 
+.trial-sponsor {
+  margin: -4px 0 11px;
+  color: #78839a;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
 .trial-bottomline {
   padding-top: 10px;
   border-top: 1px solid #f0f1f6;

@@ -41,10 +41,12 @@ function showMessage(message, isError) {
 // Finds the study's main details and returns safe display values.
 function getStudyDetails(study) {
   const protocol = study.protocolSection || {};
+  const sponsorModule = protocol.sponsorCollaboratorsModule || {};
   return {
     identification: protocol.identificationModule || {},
     status: protocol.statusModule || {},
-    design: protocol.designModule || {}
+    design: protocol.designModule || {},
+    sponsor: sponsorModule.leadSponsor || {}
   };
 }
 
@@ -97,8 +99,11 @@ function createTrialCard(study) {
 
   const title = document.createElement("h3");
   title.textContent = details.identification.briefTitle || "Untitled study";
+  const sponsor = document.createElement("p");
+  sponsor.className = "trial-sponsor";
+  sponsor.textContent = `Lead sponsor: ${details.sponsor.name || "Not reported"}`;
   const bottomLine = createTrialLink(details.identification.nctId, details.design);
-  card.append(topLine, title, bottomLine);
+  card.append(topLine, title, sponsor, bottomLine);
   return card;
 }
 

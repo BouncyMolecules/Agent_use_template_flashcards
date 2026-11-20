@@ -1,0 +1,1 @@
+Öffne SPEC.md in VS Code 
